@@ -1,6 +1,6 @@
-Clone project
-Open in Eclipse
-Go to resources foleder
-Right click on runTC.xml
-Hover on Run as
-Click TestNG Suite
+1. Clone project
+2. Open in Eclipse
+3. Go to resources foleder
+4. Right click on runTC.xml
+5. Hover on Run as
+6. Click TestNG Suite
