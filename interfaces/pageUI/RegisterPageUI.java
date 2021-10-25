@@ -16,6 +16,8 @@ public class RegisterPageUI {
 	public static final String OTP_TEXTBOX_2 = "(//div[contains(@class,'digit-input__input')])[2]";
 	public static final String OTP_TEXTBOX_3 = "(//div[contains(@class,'digit-input__input')])[3]";
 	public static final String OTP_TEXTBOX_4 = "(//div[contains(@class,'digit-input__input')])[4]";
+	public static final String ENTREPRENEUR_TEXT = "//div[contains(text(),'I am an entrepreneur and I want to incorporate in Singapore')]";
+	public static final String CONTINUE1_BUTTON = "//span[text()='Continue']";
 
 
 }

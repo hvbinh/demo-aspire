@@ -57,6 +57,9 @@ public class Level_01_Register_Login extends AbstractTest{
 		registerPage.clickToContinueButton();
 		
 		registerPage.inputToOTPTextbox1("1234");
+		registerPage.clickToContinueButton1();
+		
+		registerPage.clickToEntrepreneurTex();
 
 
 	}

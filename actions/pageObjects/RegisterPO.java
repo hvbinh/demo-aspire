@@ -85,4 +85,16 @@ public class RegisterPO extends AbstractPage{
 		setInnerText(driver, RegisterPageUI.OTP_TEXTBOX_4, otp);
 
 	}
+
+	public void clickToEntrepreneurTex() {
+		waitToElementVisible(driver, RegisterPageUI.ENTREPRENEUR_TEXT);
+		clickToElement(driver, RegisterPageUI.ENTREPRENEUR_TEXT);
+		
+	}
+
+	public void clickToContinueButton1() {
+		waitToElementVisible(driver, RegisterPageUI.CONTINUE1_BUTTON);
+		clickToElement(driver, RegisterPageUI.CONTINUE1_BUTTON);
+		
+	}
 }
