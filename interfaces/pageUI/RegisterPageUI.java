@@ -11,7 +11,7 @@ public class RegisterPageUI {
 	public static final String AGREE_TEXT = "//div[@role='checkbox']";
 	public static final String CONTINUE_BUTTON = "//button[@type='button']";
 	
-	public static final String OTP_TEXTBOX = "//input[@class='digit-input__input-real absolute']";
+	public static final String OTP_TEXTBOX = "//input[@data-cy='digit-input']/following-sibling::div/div";
 	public static final String OTP_TEXTBOX_1 = "(//div[contains(@class,'digit-input__input')])[1]";
 	public static final String OTP_TEXTBOX_2 = "(//div[contains(@class,'digit-input__input')])[2]";
 	public static final String OTP_TEXTBOX_3 = "(//div[contains(@class,'digit-input__input')])[3]";

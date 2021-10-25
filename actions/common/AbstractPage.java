@@ -284,8 +284,8 @@ public class AbstractPage {
 
 
 
-public void inputOtp(WebDriver driver, String Otp){
-	List<WebElement> otpFields = getElements(driver, "//input[@data-cy='digit-input']/following-sibling::div/div");
+public void inputOtp(WebDriver driver,String locator, String Otp){
+	List<WebElement> otpFields = getElements(driver, locator);
 
         for(int i = 0; i < otpFields.size(); i++){
         	
