@@ -38,7 +38,7 @@ public class Level_01_Register_Login extends AbstractTest{
 		referralCode = "abcd";
 		mobileNumber = getRandomNumber()+""+getRandomNumber()+"";
 
-		otp = "1";
+		otp = "1234";
 		
 	}
 	LoginPO loginPage; 
@@ -56,10 +56,8 @@ public class Level_01_Register_Login extends AbstractTest{
 		registerPage.clickToAgreeCheckbox();
 		registerPage.clickToContinueButton();
 		
-		registerPage.inputToOTPTextbox1("1");
-		registerPage.inputToOTPTextbox2("2");
-		registerPage.inputToOTPTextbox3("3");
-		registerPage.inputToOTPTextbox4("4");
+		registerPage.inputToOTPTextbox1("1234");
+
 
 	}
 	public int getRandomNumber()

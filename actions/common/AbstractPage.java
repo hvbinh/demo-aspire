@@ -14,8 +14,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-
-
 public class AbstractPage {
 	private WebDriverWait explicitWait;
 	private WebElement element;
@@ -83,6 +81,7 @@ public class AbstractPage {
 		}
 
 	}
+
 	public void sendkeyToElement(WebDriver driver, String locator, String value) {
 		element = getElement(driver, locator);
 		element.clear();
@@ -117,7 +116,7 @@ public class AbstractPage {
 			}
 		}
 	}
-	
+
 	public By getByXpath(String locator) {
 		return By.xpath(locator);
 	}
@@ -205,18 +204,19 @@ public class AbstractPage {
 		if (getElement(driver, locator).isSelected())
 			getElement(driver, locator).click();
 	}
-	public boolean isElementDisplayed(WebDriver driver, String locator)
-	{
+
+	public boolean isElementDisplayed(WebDriver driver, String locator) {
 		return getElement(driver, locator).isDisplayed();
 	}
-	public boolean isElementEnabled(WebDriver driver, String locator)
-	{
+
+	public boolean isElementEnabled(WebDriver driver, String locator) {
 		return getElement(driver, locator).isEnabled();
 	}
-	public boolean isElementSelected(WebDriver driver, String locator)
-	{
+
+	public boolean isElementSelected(WebDriver driver, String locator) {
 		return getElement(driver, locator).isSelected();
 	}
+
 	public void switchToFrame(WebDriver driver, String locator) {
 		driver.switchTo().frame(getElement(driver, locator));
 	}
@@ -224,6 +224,7 @@ public class AbstractPage {
 	public void switchToDefaultContent(WebDriver driver) {
 		driver.switchTo().defaultContent();
 	}
+
 	public void doubleClickToElement(WebDriver driver, String locator) {
 		action = new Actions(driver);
 		action.doubleClick(getElement(driver, locator)).perform();
@@ -253,38 +254,54 @@ public class AbstractPage {
 		action = new Actions(driver);
 		action.sendKeys(getElement(driver, locator), key).perform();
 	}
-	
+
 	public void sendKeyToElementByAction(WebDriver driver, String locator, String value) {
 		action = new Actions(driver);
 		element = getElement(driver, locator);
 		action.moveToElement(element).click().sendKeys(value).perform();
-		
+
 	}
+
 	public void removeAttributeInDOM(WebDriver driver, String locator, String attributeRemove) {
 		jsExecutor = (JavascriptExecutor) driver;
 		element = getElement(driver, locator);
 		jsExecutor.executeScript("arguments[0].removeAttribute('" + attributeRemove + "');", element);
 	}
-	public void setAttributeInDOM(WebDriver driver, String locator, String attribute, String value)
-	{
+
+	public void setAttributeInDOM(WebDriver driver, String locator, String attribute, String value) {
 		jsExecutor = (JavascriptExecutor) driver;
 		element = getElement(driver, locator);
-		jsExecutor.executeScript("arguments[0].setAttribute('" + attribute + "','"+value+"');", element);
+		jsExecutor.executeScript("arguments[0].setAttribute('" + attribute + "','" + value + "');", element);
 	}
 
-	public void pressSpaceByJS(WebDriver driver, String locator)
-	{
+	public void pressSpaceByJS(WebDriver driver, String locator) {
 		jsExecutor = (JavascriptExecutor) driver;
 		element = getElement(driver, locator);
 		jsExecutor.executeScript("element.dispatchEvent(new KeyBoardEvent('keydown',{'key': 'a'}));");
 	}
+
+
+
+
+
+public void inputOtp(WebDriver driver, String Otp){
+	List<WebElement> otpFields = getElements(driver, "//input[@data-cy='digit-input']/following-sibling::div/div");
+
+        for(int i = 0; i < otpFields.size(); i++){
+        	
+            explicitWait.until(ExpectedConditions.elementToBeClickable(otpFields.get(i)));
+            new Actions(driver).moveToElement(otpFields.get(i))
+                    .sendKeys(""+Otp.toCharArray()[i])
+                    .build().perform();
+            explicitWait.until(ExpectedConditions.textToBePresentInElement(otpFields.get(i), ""+Otp.toCharArray()[i]));
+        }
+    }
 	
+
 	public Object executeForBrowser(WebDriver driver, String javaScript) {
 		jsExecutor = (JavascriptExecutor) driver;
 		return jsExecutor.executeScript(javaScript);
 	}
-
-
 
 	public void scrollToBottomPage(WebDriver driver) {
 		jsExecutor = (JavascriptExecutor) driver;
@@ -296,23 +313,26 @@ public class AbstractPage {
 		element = getElement(driver, locator);
 		jsExecutor.executeScript("arguments[0].setAttribute('value', '" + value + "')", element);
 	}
-	
+
 	public void clickToElementByJS(WebDriver driver, String locator) {
 		jsExecutor = (JavascriptExecutor) driver;
 		element = getElement(driver, locator);
 		jsExecutor.executeScript("arguments[0].click();", element);
 	}
+
 	public void setInnerText(WebDriver driver, String locator, String text) {
 		jsExecutor = (JavascriptExecutor) driver;
 		element = getElement(driver, locator);
-		jsExecutor.executeScript("arguments[0].innerText='"+text+"';",element);
+		jsExecutor.executeScript("arguments[0].innerText='" + text + "';", element);
 	}
+
 	public void scrollToElement(WebDriver driver, String locator) {
 		jsExecutor = (JavascriptExecutor) driver;
 		element = getElement(driver, locator);
 		jsExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
 		sleepInSecond(1);
 	}
+
 	public void waitToElementVisible(WebDriver driver, String locator) {
 
 		explicitWait = new WebDriverWait(driver, GlobalConstants.LONG_TIME);

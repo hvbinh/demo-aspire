@@ -61,9 +61,10 @@ public class RegisterPO extends AbstractPage{
 
 	public void inputToOTPTextbox1(String otp) {
 
-		waitToElementVisible(driver, RegisterPageUI.OTP_TEXTBOX_1);
-		setInnerText(driver, RegisterPageUI.OTP_TEXTBOX_1, otp);
-		sendKeyBoardToElement(driver, RegisterPageUI.OTP_TEXTBOX, Keys.SPACE);
+//		waitToElementVisible(driver, RegisterPageUI.OTP_TEXTBOX_1);
+//		setInnerText(driver, RegisterPageUI.OTP_TEXTBOX_1, otp);
+		inputOtp(driver, otp);
+
 
 	}
 	public void inputToOTPTextbox2(String otp) {
